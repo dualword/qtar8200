@@ -1,0 +1,16 @@
+Possible to set squelch:
+
+DA (audio squelch), eg: DA98 (range 0-255)
+DB (level squelch), eg: DB2  (range 0-255)
+
+Write to memory:
+
+MXxnn RF nnnnnnnnn AUn STnnnnnn MDn ATn TMxxxxxxxx
+  ^        ^        ^       ^        ^      ^
+  --> bank |        --> auto mode (0 or 1)  --> memory text
+           --> frequency    |        --> Attenuator (0 or 1)
+                            --> Tuning step size
+
+hamlib: set_channel
+int aor_set_channel(RIG *rig, const channel_t *chan)
+
